@@ -27,11 +27,25 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-            }
-        }
+         stage('Deploy DEV') {
+                    steps {
+                        echo 'Deploying to DEV'
+                    }
+                }
+
+                stage('Deploy UAT') {
+                    steps {
+                        input message: 'Deploy to UAT?'
+                        echo 'Deploying to UAT'
+                    }
+                }
+
+                stage('Deploy PROD') {
+                    steps {
+                        input message: 'Deploy to Production?'
+                        echo 'Deploying to PROD'
+                    }
+                }
     }
 
     post {

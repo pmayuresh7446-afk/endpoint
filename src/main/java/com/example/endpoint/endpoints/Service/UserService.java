@@ -39,7 +39,7 @@ public class UserService {
     public User createUser(User user) {
 
         if(user.getSalary()<=0){
-            throw new RuntimeException("Salary should be greater by zero");
+            throw new RuntimeException("Salary should be be greater by zero");
         }
 
         return  userRepository.save(user);

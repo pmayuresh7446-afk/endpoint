@@ -2,6 +2,11 @@ pipeline {
 
     agent any
 
+    tools {
+        jdk 'JDK17'
+        maven 'Maven-3.9.16'
+    }
+
     stages {
 
         stage('Checkout') {
@@ -30,9 +35,8 @@ pipeline {
     }
 
     post {
-
         success {
-            echo 'CI/CD Pipeline completed successfully'
+            echo 'Pipeline completed successfully'
         }
 
         failure {
